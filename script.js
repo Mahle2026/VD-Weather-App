@@ -13,7 +13,7 @@ let marker = L.marker([20, 0]).addTo(map);
 const btn = document.getElementById("searchBtn");
 const input = document.getElementById("cityInput");
 
-btn.addEventListene("click", getWeather);
+btn.addEventListener("click", getWeather);
 
 input.addEventListener("keypress", (e) => {
      if (e.key === "Enter") {
