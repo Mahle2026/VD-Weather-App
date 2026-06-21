@@ -23,7 +23,10 @@ try {
     document.getElementById("icon").innerText =
     data.weather[0].main === "Rain" ? "🌧️" :
     data.weather[0].main === "Clouds" ? "☁️" :
-    data.weather[0].main === "Clear" ? "☀️" : "🌤️"
+    data.weather[0].main === "Clear" ? "☀️" : "🌤️";
+
+} catch (error) {
+    alert("City not found or API error");
 }
     
 }
