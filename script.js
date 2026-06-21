@@ -76,6 +76,9 @@ dailyForecast.forEach(day => {
     <div class="forecast-card">
         <h4>${new Date(day.dt_txt).toDateString().slice(0, 10)}
 </h4>
+     <img
+src="https://openweathermap.org/img/wn/${icon}@2x.png"
+alt="Weather Icon">
         <p>${Math.round(day.main.temp)}°C</p>
         <p>${day.weather[0].description}</p>
     </div>
