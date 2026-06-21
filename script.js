@@ -72,6 +72,8 @@ const dailyForecast = forecastData.list.filter(item =>
 );
 
 dailyForecast.forEach(day => {
+    const forecastIcon = day.weather[0].icon;
+    
     forecastDiv.innerHTML += `
     <div class="forecast-card">
         <h4>${new Date(day.dt_txt).toDateString().slice(0, 10)}
