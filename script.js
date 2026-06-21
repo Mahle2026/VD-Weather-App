@@ -59,9 +59,6 @@ if (data.cod !== 200) {
     const lon = data.coord.lon;
 
     map.setView([lat, lon], 10);
-    setTimeout(() =>{
-        map.invaliddateSize();
-    }, 300);
 
     marker.setLatLng([lat, lon])
           .bindPopuo(`${data.name} 🌤️`)
