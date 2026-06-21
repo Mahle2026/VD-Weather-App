@@ -53,11 +53,7 @@ appid=${apiKey}&units=metric`;
 
 const forecastResponse = await fetch(forecastUrl);
 const forecastData = await forecastResponse.json();
-const icon = data.weather[0].icon;
-
-document.getElementById("weatherIcon").src =
-`https://openweathermap.org/img/wn/${icon}@2x.png`;
-
+console.log(forecastData);
 
 const forecastDiv = document.getElementById("forecast");
 forecastDiv.innerHTML = "";
