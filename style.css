@@ -94,8 +94,8 @@ h1{
 }
 
 #map{
-    height: 100px;
+    height: 300px;
     width: 100%;
-    border: 15px;
-    margin-top: 10px;
+    border-radius: 12px;
+    overflow: hidden;
 }

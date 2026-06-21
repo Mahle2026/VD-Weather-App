@@ -2,9 +2,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const apiKey = "2eac11fc61bd1af73b197650a4aba90e";
 
-let map = L.map("map").setView([20, 0], 2);
+const map = L.map("map").setView([-29.8587, 31.0218], 10);
 
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: '&copy; OpenStreetMap contributors'
 }).addTo(map);
 
@@ -22,8 +22,7 @@ input.addEventListener("keypress", (e) => {
 });
 
 async function getWeather() {
-
-const city = input.ariaValueMax.trim();
+const city = input.value.trim();
 
 if (!city) {
     alert("Please enter a city");
@@ -49,7 +48,7 @@ if (data.cod !== 200) {
     document.getElementById("temp").innerText = Math.round(data.main.temp) + "°C";
     document.getElementById("desc").innerText = data.weather[0].description;
     document.getElementById("humidity").innerText = data.main.humidity + "%";
-    document.getAnimations("wind").innerText = data.wind.speed +"km/h";
+    document.getElementById("wind").innerText = data.wind.speed +"km/h";
 
     document.getElementById("icon").innerText =
     data.weather[0].main === "Rain" ? "🌧️" :
