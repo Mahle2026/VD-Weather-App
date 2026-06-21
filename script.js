@@ -57,6 +57,11 @@ const forecastData = await forecastResponse.json();
 const forecastDiv = document.getElementById("forecast");
 forecastDiv.innerHTML = "";
 
+if (forecastData.cod !== "200") {
+    forecastDiv.innerHTML = "<p>Forecast not available</p>";
+    return;
+}
+
 const dailyForecast = forecastData.list.filter(item =>
     item.dt_txt.includes("12:00:00")
 );
