@@ -64,6 +64,30 @@ if (data.cod !== 200) {
           .bindPopuo(`${data.name} 🌤️`)
           .openPopup();
 
+const forecastUrl =
+`https:/openweathermap.org/data/2.5/forecast?q=${city}&
+appid=${apiKey}&units=metric`;
+
+const forecastResponse = await fetch(forcastUrl);
+const forecastData = await forecastResponse.json();
+
+const forecastDiv = document.getElementById("forecast");
+forecastDiv.innerHTML = "";
+
+const dailyForecast = forecastData.list.filter(item =>
+    item.dt_txt.includes("12:00:00")
+);
+
+dailyForecast.forEach(day =>{
+    forecastDiv.innerHTML +=`
+    <div class="forecast-card">
+        <h4>${new Date(day.dt_txt).toDateString().slice(0, 10)}</h4>
+        <p>${Math.round(day.main.temp)}°C</p>
+        <p>${day.weather[0].description}</p>
+    </div>
+`;
+});
+
 } catch (error) {
     alert("City not found or API error");
 }
