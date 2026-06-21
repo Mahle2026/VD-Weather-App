@@ -59,13 +59,16 @@ if (data.cod !== 200) {
     const lon = data.coord.lon;
 
     map.setView([lat, lon], 10);
+    setTimeout(() =>{
+        map.invaliddateSize();
+    }, 300);
 
     marker.setLatLng([lat, lon])
           .bindPopuo(`${data.name} 🌤️`)
           .openPopup();
 
 const forecastUrl =
-`https:/openweathermap.org/data/2.5/forecast?q=${city}&
+`https://openweathermap.org/data/2.5/forecast?q=${city}&
 appid=${apiKey}&units=metric`;
 
 const forecastResponse = await fetch(forcastUrl);
