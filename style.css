@@ -34,9 +34,16 @@ h1{
 
 .search input{
     flex: 1;
+    font-size: 20px;
+    text-align: center;
     padding: none;
     border-radius: 25px;
     outline: none;
+}
+
+.search input:placeholder{
+    text-align: center;
+    font-size: 18px;
 }
 
 .search button{
@@ -85,7 +92,19 @@ h1{
     border-radius: 15px;
 }
 
+.forecast-section{
+    width: 100%;
+    margin-top: 25px;
+}
+
+.forecast-section h3 {
+    text-align: center;
+    
+}
+
+
 .map-section{
+    width: 100%;
     margin-top: 20px;
     background: rgba(255,255,255,0.15);
     padding: 15px;
@@ -94,8 +113,9 @@ h1{
 }
 
 #map{
-    height: 300px;
+    height: 400px;
     width: 100%;
+    margin-top: 20px;
     border-radius: 12px;
     overflow: hidden;
 }
