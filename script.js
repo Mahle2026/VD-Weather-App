@@ -53,6 +53,7 @@ appid=${apiKey}&units=metric`;
 
 const forecastResponse = await fetch(forecastUrl);
 const forecastData = await forecastResponse.json();
+
 console.log(forecastData);
 
 const forecastDiv = document.getElementById("forecast");
@@ -75,8 +76,7 @@ dailyForecast.forEach(day => {
         <h4>${new Date(day.dt_txt).toDateString().slice(0, 10)}
 </h4>
      <img
-src="https://openweathermap.org/img/wn/${forecastIcon}@2x.png"
-alt="Weather Icon">
+src="https://openweathermap.org/img/wn/${forecastIcon}@2x.png">
         <p>${Math.round(day.main.temp)}°C</p>
         <p>${day.weather[0].description}</p>
     </div>
