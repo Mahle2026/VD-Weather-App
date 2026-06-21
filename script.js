@@ -2,14 +2,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const apiKey = "2eac11fc61bd1af73b197650a4aba90e";
 
-const map = L.map("map").setView([-29.8587, 31.0218], 10);
-
-L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    attribution: '&copy; OpenStreetMap contributors'
-}).addTo(map);
-
-let marker = L.marker([20, 0]).addTo(map);
-
 const btn = document.getElementById("searchBtn");
 const input = document.getElementById("cityInput");
 
@@ -55,23 +47,11 @@ if (data.cod !== 200) {
     data.weather[0].main === "Clouds" ? "☁️" :
     data.weather[0].main === "Clear" ? "☀️" : "🌤️";
 
-    const lat =data.coord.lat;
-    const lon = data.coord.lon;
-
-    map.setView([lat, lon], 10);
-    setTimeout(() => {
-        map.invalidateSize();
-    }, 500);
-
-    marker.setLatLng([lat, lon])
-          .bindPopuo(`${data.name} 🌤️`)
-          .openPopup();
-
 const forecastUrl =
 `https://openweathermap.org/data/2.5/forecast?q=${city}&
 appid=${apiKey}&units=metric`;
 
-const forecastResponse = await fetch(forcastUrl);
+const forecastResponse = await fetch(forecastUrl);
 const forecastData = await forecastResponse.json();
 
 const forecastDiv = document.getElementById("forecast");
