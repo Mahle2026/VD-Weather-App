@@ -1,24 +1,29 @@
+document.addEventListener("DOMContentLoaded", () => {
+
 const apiKey = "2eac11fc61bd1af73b197650a4aba90e";
 
-let map = L.map("map").setView([-26.2041, 28.0473], 10);
+let map = L.map("map").setView([20, 0], 2);
 
-L.titleLayer('https://{s}.title.openstreetmap.org/{z}/{x}/{y}.png',{
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; OpenStreetMap contributors'
 }).addTo(map);
 
-let marker = L.marker([-26.2041, 28.0473]).addTo(map);
+let marker = L.marker([20, 0]).addTo(map);
 
-document.getElementById("searchBtn").addEventListener("click", getWeather);
+const btn = document.getElementById("searchBtn");
+const input = document.getElementById("cityInput");
 
-document.getElementById("cityInput").addEventListener("keypress",  function(e){
-    if(e.key === "Enter") {
+btn.addEventListene("click", getWeather);
+
+input.addEventListener("keypress", (e) => {
+     if (e.key === "Enter") {
         getWeather();
-    }
+     }
 });
 
 async function getWeather() {
 
-const city = document.getElementById("cityInput").value;
+const city = input.ariaValueMax.trim();
 
 if (!city) {
     alert("Please enter a city");
@@ -59,9 +64,11 @@ if (data.cod !== 200) {
     marker.setLatLng([lat, lon])
           .bindPopuo(`${data.name} 🌤️`)
           .openPopup();
-          
+
 } catch (error) {
     alert("City not found or API error");
 }
     
 }
+
+});
