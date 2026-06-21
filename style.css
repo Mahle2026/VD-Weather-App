@@ -110,7 +110,8 @@ h1{
 }
 
 .forecast-card{
-    background: white;
+    background: #2196f3;
+    color: white;
     padding: 15px;
     border-radius: 15px;
     text-align: center;
