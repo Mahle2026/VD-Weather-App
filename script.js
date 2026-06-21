@@ -61,20 +61,21 @@ const dailyForecast = forecastData.list.filter(item =>
     item.dt_txt.includes("12:00:00")
 );
 
-dailyForecast.forEach(day =>{
-    forecastDiv.innerHTML +=`
+dailyForecast.forEach(day => {
+    forecastDiv.innerHTML += `
     <div class="forecast-card">
-        <h4>${new Date(day.dt_txt).toDateString().slice(0, 10)}</h4>
+        <h4>${new Date(day.dt_txt).toDateString().slice(0, 10)}
+</h4>
         <p>${Math.round(day.main.temp)}°C</p>
         <p>${day.weather[0].description}</p>
     </div>
-`;
+   `;
 });
 
 } catch (error) {
-    alert("City not found or API error");
+    console.log(error);
 }
-    
+
 }
 
 });
