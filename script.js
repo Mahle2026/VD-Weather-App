@@ -6,13 +6,23 @@ async function getWeather() {
 
 const city = document.getElementById("cityInput").value;
 
+if (!city) {
+    alert("Please enter a city");
+    return;
+}
+
 const url = 
-`https://api.openweathermap.org/data/2.5/weather?=${city}&appid${apiKey}&units=metric`;
+`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid${apiKey}&units=metric`;
 
 try {
 
     const res = await fetch(url);
     const data = await res.json();
+
+if (data.cod !== 200) {
+    alert(data.message);
+    return;
+}
 
     document.getElementById("city").innerText = data.name;
     document.getElementById("temp").innerText = data.main.temp + "°C";
