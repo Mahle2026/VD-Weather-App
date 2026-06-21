@@ -48,7 +48,7 @@ if (data.cod !== 200) {
     data.weather[0].main === "Clear" ? "☀️" : "🌤️";
 
 const forecastUrl =
-`https://openweathermap.org/data/2.5/forecast?q=${city}&
+`https://api.openweathermap.org/data/2.5/forecast?q=${city}&
 appid=${apiKey}&units=metric`;
 
 const forecastResponse = await fetch(forecastUrl);
